@@ -1,0 +1,19 @@
+# random-forest-classifier
+Assignment
+import pandas as pd
+import numpy as np
+import seaborn as sb
+from matplotlib import pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+%matplotlib inline
+data=pd.read_csv('mnist_test.csv.zip','mnist_train.csv.zip','randomforestclassifier-Main.zip',engine='python')
+data.head()
+a = data.iloc[3,1:].values
+a = a.reshape(0,22).astype('uint8')
+plt.imshow(a)
+df_x = data.iloc[:,1:]
+df_y = data.iloc[:,0]
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size = 0.2, random_state=4)
+x_train.head()
+y_train.head()
